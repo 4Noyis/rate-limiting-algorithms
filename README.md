@@ -1,5 +1,6 @@
 # Rate Limiting Algorithms
 Rate Limiting Algorithms are mechanisms designed to control the rate at which requests are processed or served by a system. They help prevent system overload, ensure fair resource allocation, and protect against abuse or denial-of-service attacks.
+---
 
 ## Token Bucket Algorithm
 The token bucket algorithm maintains a bucket that holds tokens. Each request consumes one token, and tokens are refilled at a constant rate. This algorithm allows for burst traffic while maintaining an average rate limit.
