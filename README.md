@@ -11,9 +11,9 @@ Request Proccessing: Each request consumes one tokens; if no tokens are availabl
 
 #### Key Features
 
-✅ Burst Handling: Allows temporary bursts up to bucket capacity
-✅ Flexible: Good balance between strictness and allowing traffic spikes
-✅ Memory Efficient: Only stores current token count and last refill time
+- ✅ Burst Handling: Allows temporary bursts up to bucket capacity
+- ✅ Flexible: Good balance between strictness and allowing traffic spikes
+- ✅ Memory Efficient: Only stores current token count and last refill time
 
 #### Use Cases
 
@@ -69,27 +69,6 @@ Req:  1   2   3   4   5   6   1   2   3   4   5
       └─────Window 1──────┘   └─────Window 2──────┘
 ```
 
-
-
-
-Fixed Window Counter Algorithm
-The fixed window counter algorithm tracks incoming requests within predetermined timeframes. It divides the timeline into discrete, non-overlapping windows and counts requests within each window according to a set limit.
-How It Works
-Time is divided into fixed windows (e.g., every 10 seconds). Within each window, requests are counted up to a specified limit. When a window expires, the counter resets to zero.
-Window Lifecycle
-
-Window Start: t=0s → Counter starts at 0
-During Window: t=0s to t=10s → Count requests up to limit
-Window End: t=10s → Reset counter to 0, start new window
-Repeat: New window begins immediately
-```
-Example: `NewFixedWindowCounte`(5, 10*time.Second)``
-
-Time: 0s  2s  4s  6s  8s  10s 12s 14s 16s 18s 20s
-Req:  1   2   3   4   5   6   1   2   3   4   5
-      ↑   ↑   ↑   ↑   ✗   ↑   ↑   ↑   ↑   ↑   ✗
-      └─────Window 1──────┘   └─────Window 2──────┘
-```
 #### Key Features
 - ✅ Simple: Easy to understand and implement
 - ✅ Memory Efficient: Only stores count and window start time
